@@ -3,6 +3,7 @@ import SelectedLanguages from './SelectedLanguages.jsx';
 import RepoGrid from './RepoGrid.jsx';
 
 import api from '../utils/api';
+import Loading from './Loading.jsx';
 
 class Popular extends Component {
     constructor(props){
@@ -35,7 +36,7 @@ class Popular extends Component {
                 <SelectedLanguages 
                     select={this.state.selectedLanguage} 
                     UpdateLanguage={this.UpdateLanguage}/>
-                {!this.state.repos ? <p>Loading ...</p> : 
+                {!this.state.repos ? <Loading text='Downloading' speed={150} /> : 
                     <RepoGrid repos={this.state.repos}/>}
             </div>
         )
