@@ -23,7 +23,7 @@ class Results extends Component {
         ]).then((results) => {
             if(results === null){
                 return this.setState({
-                    error: 'Looks like they have not the users on Github',
+                    error: "Looks like they have at least one users on Github who doesn't exist",
                     loading: false
                 })
             }
@@ -43,7 +43,7 @@ class Results extends Component {
         var loading = this.state.loading        
         
         if(loading === true){
-            return <p>Loading ... </p> 
+            return <loading speed={250} text='Fight'/>
         } 
         
         if(error) {
@@ -56,16 +56,18 @@ class Results extends Component {
         }
 
         return(
-            <div className='row'>
-                <Player 
-                    label='Winner'
-                    score={winner.score}
-                    profile={winner.profile}/>
-                <Player 
-                    label='Looser'
-                    score={looser.score}
-                    profile={looser.profile}/>
-                
+            <div>
+                <div className='row'>
+                    <Player 
+                        label='Winner'
+                        score={winner.score}
+                        profile={winner.profile}/>
+                    <Player 
+                        label='Looser'
+                        score={looser.score}
+                        profile={looser.profile}/>
+                </div>
+                <Link className="relaunch" to='/battle'> New Battle </Link>
             </div>
         )
     }
@@ -101,7 +103,7 @@ const Profile = (props) => {
 Player.propTypes = {
     label: PropTypes.string.isRequired,
     score: PropTypes.number.isRequired,
-    porfile: PropTypes.object.isRequired
+    profile: PropTypes.object.isRequired
 }
 
 export default Results

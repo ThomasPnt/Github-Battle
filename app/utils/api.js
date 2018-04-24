@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-var id = "ddd529305d5cdaffd729";
-var sec = "77aaa3d75f0875c51f6faee6d669ee48991d92ca";
+var id = "1eb227b767a740e33d9a";
+var sec = "af16b128fde7860859c07d2b01b4d97e232a502c";
 var params = "?client_id=" + id + "&client_secret=" + sec;
+
 
 function getProfile(username){
     return axios.get('https://api.github.com/users/'+ username + params)
-        .then((user) => { user.data })
+        .then((user) => user.data )
 }
 
 function getRepos(username){
     return axios.get('https://api.github.com/users/'+ username + '/repos' + params + '&per_page=100')
-        .then()
 }
 
 function getStarCount(repos){

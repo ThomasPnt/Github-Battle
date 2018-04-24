@@ -144,3 +144,8 @@ a{
 .reset:hover{
     cursor: pointer;
 }
+
+.relaunch{
+    display: block;
+    text-align: center;
+}

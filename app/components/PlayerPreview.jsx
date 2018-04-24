@@ -16,7 +16,6 @@ const PlayerPreview = (props) => {
 PlayerPreview.propTypes = {
     avatar: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
 }
 
 export default PlayerPreview
